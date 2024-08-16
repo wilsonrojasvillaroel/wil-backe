@@ -14,6 +14,64 @@ const User =  sequelize.define("user",{
   }
 
 })
+const DatosPersonales =  sequelize.define("DatosPersonales",{
+  ci:{
+    type:DataTypes.INET,
+    allowNull:false
+  },
+  telefono:{
+    type:DataTypes.INTEGER,
+    allowNull:false
+  },
+  Correo:{
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+  FechaNacimiento:{
+    type:DataTypes.BOOLEAN,
+    allowNull:false
+  },
+  Domicilio:{
+    type:DataTypes.STRING,
+    allowNull:false
+  }
+})
+const DatosAcademicos= sequelize.define("DatosAcademicos",{
+GradoAcademico:{
+  type:DataTypes.STRING,
+  allowNull:false
+},
+AreaEspecializacion:{
+  type:DataTypes.STRING,
+  allowNull:false
+},
+Grado:{
+  type:DataTypes.STRING,
+  allowNull:false
+}
+})
+const HistorialContraseña= sequelize.define("Historial contraseña",{
+  contraseña:{
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+})
+const Rol_Usuario= sequelize.define("Rol_Usuario",{
+  RolesUsuario_id:{
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+})
+const Roles= sequelize.define("Roles",{
+  Roles_id:{
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+  Nombre_Rol:{
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+})
 
 async function probarconnexion(){
   try {

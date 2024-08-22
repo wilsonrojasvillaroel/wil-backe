@@ -3,12 +3,12 @@ const sequelize = new Sequelize('postgres://postgres:1234@localhost:5432/wil') /
 
 
 
-const User =  sequelize.define("user",{
+const Usuario =  sequelize.define("Usuario",{
   nombre:{
     type:DataTypes.STRING,
     allowNull:false
   },
-  contraseña:{
+  contrasenia:{
     type:DataTypes.STRING,
     allowNull:false
   }
@@ -50,8 +50,8 @@ Grado:{
   allowNull:false
 }
 })
-const HistorialContraseña= sequelize.define("Historial contraseña",{
-  contraseña:{
+const HistorialContrasenia= sequelize.define("Historialcontrasenia",{
+  contrasenia:{
     type:DataTypes.STRING,
     allowNull:false
   },
@@ -63,15 +63,23 @@ const Rol_Usuario= sequelize.define("Rol_Usuario",{
   },
 })
 const Roles= sequelize.define("Roles",{
-  Roles_id:{
-    type:DataTypes.STRING,
-    allowNull:false
-  },
+
   Nombre_Rol:{
     type:DataTypes.STRING,
     allowNull:false
   },
 })
+Usuario.belongsToMany(Roles, { through: 'RolUsuario' });
+Roles.belongsToMany(Usuario, { through: 'RolUsuario' });
+
+Usuario.hasMany(HistorialContrasenia);
+HistorialContrasenia.belongsTo(Usuario);
+
+Usuario.hasOne(DatosAcademicos);
+DatosAcademicos.belongsTo(Usuario);
+
+Usuario.hasOne(DatosPersonales);
+DatosPersonales.belongsTo(Usuario);
 
 async function probarconnexion(){
   try {
@@ -81,7 +89,8 @@ async function probarconnexion(){
     } catch (error) {
       console.error('Unable to connect to the database:', error);
     }
-    
+   
   
   }
+  
   module.exports=probarconnexion

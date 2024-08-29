@@ -5,7 +5,7 @@ async function datosacademicosLista(req,res) {
     res.send(datosacademicos)
 }
 async function datosacademicosCreate(req,res) {
-    const datosacademicos=await DatosAcademicos.Create({GradoAcademico:"juancito",AreaEspecializacion:"123",grado:""})
+    const DatosAcademicos=await DatosAcademicos.Create({GradoAcademico:"juancito",AreaEspecializacion:"123",grado:""})
     
 }
 module.exports={datosacademicosLista,datosacademicosCreate}

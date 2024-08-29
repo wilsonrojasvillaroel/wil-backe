@@ -5,7 +5,7 @@ async function usuariosLista(req,res) {
     res.send(usuario)
 }
 async function usuarioCreate(req,res) {
-    const usuario=await Usuario.Create({nombre:"juancito",contrasenia:"123"})
+    const Usuario=await Usuario.Create({nombre:"juancito",contrasenia:"123"})
     
 }
 

@@ -93,4 +93,4 @@ async function probarconnexion(){
   
   }
   
-  module.exports=probarconnexion
+  module.exports={probarconnexion,sequelize,Usuario,Roles,HistorialContrasenia,DatosAcademicos,DatosPersonales}

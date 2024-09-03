@@ -1,6 +1,6 @@
-const { datospersoales } = require("../controladores/datospersonales-controles")
 
-const express=requiere("espress")
+
+const express=require("express")
 const router =express.Router()
 
 const {datospersonalesLista,datosPersonalesCreate} =require ("./../controladores/DatosPersonales-contoles")

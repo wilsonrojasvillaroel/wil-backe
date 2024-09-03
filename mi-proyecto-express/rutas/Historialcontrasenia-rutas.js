@@ -1,6 +1,6 @@
-const { historialcontrasniaCreate } =require("../controladores/Historialcontrasenia-controles")
 
-const express=requiere("espress")
+
+const express=require("express")
 const router =express.Router()
 
 const {historialcontraseniaLista,historialcontrasniaCreate} =require ("./../controladores/Historialcontrasenia-controles")

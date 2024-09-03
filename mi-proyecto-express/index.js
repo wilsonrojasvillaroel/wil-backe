@@ -1,9 +1,13 @@
-const probarconnexion=require( './modelos/conexion')
+const {probarconnexion}=require( './modelos/conexion')
 const express = require('express')
-const Usuario = require('./rutas/Usuario-rutas')
-
+const Usuariorutas= require('./rutas/Usuario-rutas')
+const  DatosAcademicosrutas = require('./rutas/DatosAcademicos-rutas')
+const Datospersonalesrutas = require('./rutas/Datospersonales-rutas')
+const Historialcontraseniarutas = require('./rutas/Historialcontrasenia-rutas')
+const Rolesrutas = require("./rutas/Roles-rutas")
 
 const app = express()
+app.use(express.urlencoded({bodyparser:true}))
 const port = 3000
 probarconnexion()
 
@@ -11,14 +15,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.use("/Usuario",Usuariorutas)
+app.use("/Roles",Rolesrutas)
+app.use("/Historialcontraseniarutas",Historialcontraseniarutas)
+app.use("/Datospersonales",Datospersonalesrutas)
+app.use("/DatosAcademicos",DatosAcademicosrutas)
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
-
-
-app.use("/Usuario",Usuario)
-app.listen(port,()=>{
-  console.log("conexion app listening on port "${port})
-
 
 })

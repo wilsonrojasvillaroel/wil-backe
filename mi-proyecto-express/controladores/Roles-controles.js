@@ -1,4 +1,4 @@
-const{ Roles}=require("./../ modelos/conexion")
+const{ Roles}=require("express")
 
 async function rolesLista(req,res) {
     const roles=await Roles.findAll()
@@ -6,6 +6,8 @@ async function rolesLista(req,res) {
 }
 async function rolesCreate(req,res) {
     const Roles=await Roles.Create({nombre:"franco",})
+
+    res.send("tristeza")
     
 }
 module.exports={rolesLista,rolesCreate}

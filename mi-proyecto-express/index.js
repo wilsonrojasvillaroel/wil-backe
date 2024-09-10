@@ -5,9 +5,14 @@ const  DatosAcademicosrutas = require('./rutas/DatosAcademicos-rutas')
 const Datospersonalesrutas = require('./rutas/Datospersonales-rutas')
 const Historialcontraseniarutas = require('./rutas/Historialcontrasenia-rutas')
 const Rolesrutas = require("./rutas/Roles-rutas")
+const cors=require("cors");
 
 const app = express()
+
+app.use(cors());
 app.use(express.urlencoded({bodyparser:true}))
+app.use(express.json());
+
 const port = 3000
 probarconnexion()
 

@@ -5,7 +5,7 @@ async function datospersonalesLista(req,res) {
     res.send(datospersonales)
 }
 async function datosPersonalesCreate(req,res) {
-    const DatosPersonales=await DatosPersonales.Create({ci:"juancito",telefono:"123",correo:"",fechanacimiento:"",omicilio:""})
+    const DatosPersonales=await DatosPersonales.Create({ci:"juancito",telefono:"123",correo:"",fechanacimiento:"",domicilio:""})
   
     res.send("envidia")
 }

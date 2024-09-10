@@ -16,7 +16,7 @@ const Usuario =  sequelize.define("Usuario",{
 })
 const DatosPersonales =  sequelize.define("DatosPersonales",{
   ci:{
-    type:DataTypes.INET,
+    type:DataTypes.STRING,
     allowNull:false
   },
   telefono:{
@@ -28,7 +28,7 @@ const DatosPersonales =  sequelize.define("DatosPersonales",{
     allowNull:false
   },
   FechaNacimiento:{
-    type:DataTypes.BOOLEAN,
+    type:DataTypes.DATEONLY,
     allowNull:false
   },
   Domicilio:{

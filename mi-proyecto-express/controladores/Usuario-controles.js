@@ -21,6 +21,7 @@ async function usuariosLista(req, res) {
 
 
     })
+    console.log(usuario)
 
 
     res.send(usuario)
@@ -29,15 +30,14 @@ async function usuariosLista(req, res) {
 async function usuarioCreate(req, res) {
 
 
-    console.log(req.body.nombre)
-    console.log(req.body.contrasenia)
+    console.log(req.body)
+    
 
-    console.log(req.body.ci)
-    console.log(req.body.telefono)
-    console.log(req.body.correo)
-    console.log(req.body.fechanacimiento)
-    console.log(req.body.domicilio)
-
+    const usuario = await Usuario.create({ nombre: req.body.nombre, contrasenia: req.body.contrasenia })
+    const datospersonales = await DatosPersonales.create({ ci: req.body.ci, telefono: req.body.telefono, Correo: req.body.correo, FechaNacimiento: req.body.fechanacimiento, Domicilio: req.body.domicilio, UsuarioId: usuario.id })
+    const datosacademicos = await DatosAcademicos.create({ GradoAcademico: req.body.gradoacademico, AreaEspecializacion: req.body.areaespecializacion, Grado: req.body.grado, UsuarioId: usuario.id })
+    res.send("alegria")
+    
 
 }
 async function actualizarUsuario(req, res) {
@@ -62,15 +62,6 @@ async function eliminarUsuario(req, res) {
         ci: body.ci
     })
 }
-
-
-const usuario = await Usuario.create({ nombre: req.body.nombre, contrasenia: req.body.contrasenia })
-const datospersonales = await DatosPersonales.create({ ci: req.body.ci, telefono: req.body.telefono, Correo: req.body.correo, FechaNacimiento: req.body.fechanacimiento, Domicilio: req.body.domicilio, UsuarioId: usuario.id })
-const datosacademicos = await DatosAcademicos.create({ GradoAcademico: req.body.gradoacademico, AreaEspecializacion: req.body.areaespecializacion, Grado: req.body.grado, UsuarioId: usuario.id })
-res.send("alegria")
-
-
-
 
 
 module.exports = { usuariosLista, usuarioCreate, actualizarUsuario, eliminarUsuario, Usuario }

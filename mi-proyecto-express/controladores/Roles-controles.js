@@ -5,7 +5,7 @@ async function rolesLista(req,res) {
     res.send(roles)
 }
 async function rolesCreate(req,res) {
-    const Roles=await Roles.Create({nombre:"franco",})
+    const Roles=await Roles.Create({nombre:"roles",})
 
     res.send("tristeza")
     

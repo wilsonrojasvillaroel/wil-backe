@@ -6,7 +6,7 @@ const router =express.Router()
 const {usuariosLista,usuarioCreate,actualizarUsuario,eliminarUsuario} =require ("./../controladores/Usuario-controles")
 
 router.get("/lista",usuariosLista)
-router.post("/create",usuarioCreate)
+router.post("/crear",usuarioCreate)
 
 router.put("/actualizar/:id",actualizarUsuario)
 
